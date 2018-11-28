@@ -34,3 +34,13 @@
     | ------ | ------------------------- |
     | images | Docker데몬의 Docker이미지 목록 표시 |
     | rmi    | Docker 데몬의 Docker이미지 삭제   |
+
+## Docker 실행옵션
+
+| 내용         | 옵션     | 예제                                                                          | 비고                             |
+| ---------- | ------ | --------------------------------------------------------------------------- | ------------------------------ |
+| 컨테이너 이름 지정 | --name | #docker run -d --name=mynginx nginx                                         |
+| 환경변수 지정    | -e     | #docker run -e MYENV=foo centos evn \| grep MYENV                           |
+| 볼륨 바인드     | -v     | #docker run -d --name nginx-vol -v /root/htdocs:/usr/share/nginx/html nginx |
+| 포트 바인드     | -p     | #docker run -d -p 60000-60030:60000-60030 -p 1080:80 nginx                  | 호스트의 0.0.0.0:1080을 컨테이너 80에 할당 |
+|컨테이너 링크  |   --link| #docker run centos env \| grep -i _port \\n #docker run --link mynginx:ngx centos env \| grep -i _port |접속 상대의 주소와 포트를 얻기
